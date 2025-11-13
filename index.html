@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Long Bedian, Sarawak - Home</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to our external stylesheet -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <script>
+        // Tailwind config remains here to be loaded by the script
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-green': '#047857', /* Emerald-700 */
+                        'secondary-gold': '#FCD34D', /* Amber-300 */
+                        'background-light': '#f7fbfd',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-gray-800 page-fade-in">
+
+    <!-- 1. Navbar (Shared Across All Views) -->
+    <header class="sticky top-0 z-50 bg-white shadow-lg">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Link to index.html for the logo -->
+            <a href="index.html" class="text-2xl font-bold text-primary-green hover:text-green-800 transition duration-300">
+                L. Bedian
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <!-- Update all hrefs to point to .html files -->
+                <!-- Set "Home" as the active link on this page -->
+                <a href="index.html" class="desktop-nav-link text-primary-green border-b-2 border-primary-green font-medium transition duration-300">Home</a>
+                <a href="about.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300">Our Story</a>
+                <a href="culture.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300">Culture</a>
+                <a href="explore.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300">Explore</a>
+                <a href="contact.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300">Contact Us</a>
+            </div>
+
+            <!-- Mobile Menu Button (Hamburger) -->
+            <button class="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100" id="mobile-menu-button">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-inner">
+            <a href="index.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Home</a>
+            <a href="about.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Our Story</a>
+            <a href="culture.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Culture</a>
+            <a href="explore.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Explore</a>
+            <a href="contact.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Contact Us</a>
+        </div>
+    </header>
+
+    <!-- ============================================== -->
+    <!-- HOME PAGE CONTENT -->
+    <!-- ============================================== -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-background h-[80vh] flex items-center justify-center text-center relative rounded-b-xl shadow-2xl">
+            <!-- Overlay for better text readability -->
+            <div class="absolute inset-0 bg-black opacity-40 rounded-b-xl"></div>
+            <div class="relative z-10 p-6 max-w-5xl">
+                <h1 class="text-5xl sm:text-7xl font-extrabold text-white mb-4 leading-tight shadow-text">
+                    LONG BEDIAN
+                </h1>
+                <p class="text-xl sm:text-3xl text-secondary-gold font-light mb-8 italic shadow-text">
+                    — The Heart of Baram, Where Life Flows —
+                </p>
+                <a href="about.html" class="inline-block px-8 py-3 bg-primary-green text-white font-semibold rounded-full shadow-lg hover:bg-green-700 transition duration-300 transform hover:scale-105">
+                    Discover Our Story
+                </a>
+            </div>
+        </section>
+
+        <!-- Welcome Message and Quick Links -->
+        <section id="welcome" class="py-16 bg-white -mt-10 relative z-20">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                
+                <!-- Welcome Quote from Community Leader -->
+                <div class="bg-background-light p-8 md:p-12 rounded-2xl shadow-xl border-t-4 border-primary-green mb-16">
+                    <div class="text-5xl mb-4 text-primary-green">
+                        &ldquo;
+                    </div>
+                    <p class="text-xl md:text-2xl font-light text-gray-700 leading-relaxed mb-6">
+                        We welcome you to our ancestral lands. Here, the river provides, the jungle sustains, and the spirit of the Kayan people thrives in unity. Come, share our heritage.
+                    </p>
+                    <p class="text-md font-semibold text-primary-green">
+                        — Tuai Rumah Awing Jalong, Longhouse Leader (Mock Quote)
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="mt-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-8">Quick Exploration</h2>
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                        <a href="about.html" class="block p-6 bg-primary-green text-white rounded-xl shadow-lg hover:shadow-xl hover:bg-green-700 transition duration-300 transform hover:scale-[1.03]">
+                            <svg class="w-10 h-10 mx-auto mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
+                            <span class="font-semibold">Our Story (History)</span>
+                        </a>
+                        <a href="culture.html" class="block p-6 bg-primary-green text-white rounded-xl shadow-lg hover:shadow-xl hover:bg-green-700 transition duration-300 transform hover:scale-[1.03]">
+                            <svg class="w-10 h-10 mx-auto mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z" /></svg>
+                            <span class="font-semibold">Local Culture</span>
+                        </a>
+                        <a href="explore.html" class="block p-6 bg-primary-green text-white rounded-xl shadow-lg hover:shadow-xl hover:bg-green-700 transition duration-300 transform hover:scale-[1.03]">
+                            <svg class="w-10 h-10 mx-auto mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
+                            <span class="font-semibold">Attractions & Map</span>
+                        </a>
+                        <a href="contact.html" class="block p-6 bg-primary-green text-white rounded-xl shadow-lg hover:shadow-xl hover:bg-green-700 transition duration-300 transform hover:scale-[1.03]">
+                            <svg class="w-10 h-10 mx-auto mb-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+                            <span class="font-semibold">Connect With Us</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 3. Footer (Shared Across All Views) -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+            <div class="md:flex justify-between items-center">
+                <p class="text-lg font-semibold mb-4 md:mb-0">Long Bedian, Baram, Sarawak</p>
+                <div class="flex space-x-6 justify-center">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms of Use</a>
+                </div>
+            </div>
+            <div class="mt-4 border-t border-gray-700 pt-4 text-center">
+                <p class="text-sm text-gray-500">&copy; 2025 Long Bedian Community. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link to our external JavaScript file -->
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

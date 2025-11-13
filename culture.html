@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayan Culture - Long Bedian, Sarawak</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to our external stylesheet -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-green': '#047857', /* Emerald-700 */
+                        'secondary-gold': '#FCD34D', /* Amber-300 */
+                        'background-light': '#f7fbfd',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-gray-800 page-fade-in">
+
+    <!-- 1. Navbar (Shared Across All Views) -->
+    <header class="sticky top-0 z-50 bg-white shadow-lg">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-primary-green hover:text-green-800 transition duration-300">
+                L. Bedian
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300">Home</a>
+                <a href="about.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300">Our Story</a>
+                <!-- Set "Culture" as the active link on this page -->
+                <a href="culture.html" class="desktop-nav-link text-primary-green border-b-2 border-primary-green font-medium transition duration-300">Culture</a>
+                <a href="explore.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300">Explore</a>
+                <a href="contact.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300">Contact Us</a>
+            </div>
+
+            <!-- Mobile Menu Button (Hamburger) -->
+            <button class="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100" id="mobile-menu-button">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-inner">
+            <a href="index.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Home</a>
+            <a href="about.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Our Story</a>
+            <a href="culture.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Culture</a>
+            <a href="explore.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Explore</a>
+            <a href="contact.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Contact Us</a>
+        </div>
+    </header>
+
+    <!-- ============================================== -->
+    <!-- CULTURE PAGE CONTENT -->
+    <!-- ============================================== -->
+    <main class="py-16 bg-background-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-5xl font-extrabold text-primary-green mb-12 text-center">The Vibrant Kayan Culture</h1>
+
+            <!-- 1. Festivals and Ceremonies -->
+            <section class="mb-16 p-8 bg-white rounded-xl shadow-lg">
+                <h2 class="text-3xl font-bold text-gray-700 mb-6 border-b pb-2">Annual Rites and Celebrations</h2>
+                <p class="text-gray-600 mb-6">
+                    Life in Long Bedian is marked by the rhythm of the seasons and ancient customs. Our major ceremonies often revolve around the agricultural calendar and significant life events, reinforcing community bonds.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-primary-green/5 p-6 rounded-lg border-l-4 border-secondary-gold">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Tawai (Harvest Festival)</h3>
+                        <p class="text-sm text-gray-600">
+                            The Tawai is the Kayan equivalent of the Gawai Dayak, celebrating a successful rice harvest. It is a time for feasting, drinking *burak* (rice wine), traditional dancing, and giving thanks to the spirits for their bounty.
+                        </p>
+                    </div>
+                    <div class="bg-primary-green/5 p-6 rounded-lg border-l-4 border-secondary-gold">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Peleku (Life-Cycle Rites)</h3>
+                        <p class="text-sm text-gray-600">
+                            Rites of passage, known as Peleku, mark important transitions like births, marriages, and deaths. These ceremonies involve specific rituals, chants, and communal gatherings to ensure spiritual blessing and protection.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Traditional Arts and Crafts -->
+            <section class="mb-16 p-8 bg-white rounded-xl shadow-lg">
+                <h2 class="text-3xl font-bold text-gray-700 mb-6 border-b pb-2">Craftsmanship, Clothing, and Cuisine</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Crafts -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-primary-green mb-3">Intricate Handcrafts</h3>
+                        <p class="text-gray-600 mb-4">
+                            The Kayan are renowned masters of <strong class="text-primary-green">Beadwork</strong> (lavish ornaments and costumes), <strong class="text-primary-green">Wood Carving</strong> (elaborate burial poles and longhouse decorations), and <strong class="text-primary-green">Rattan Weaving</strong> (durable baskets and mats). These objects are vital to social status and ritual life.
+                        </p>
+                        <img src="https://placehold.co/400x300/FCD34D/047857?text=Kayan+Beadwork" alt="Kayan Beadwork" class="w-full h-auto rounded-lg shadow-md mt-4" onerror="this.src='https://placehold.co/400x300/FCD34D/047857?text=Image+Not+Found'">
+                    </div>
+                    <!-- Clothing -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-primary-green mb-3">Traditional Attire</h3>
+                        <p class="text-gray-600 mb-4">
+                            Ceremonial attire features stunning use of intricate beadwork, animal teeth, feathers, and traditional hand-woven cloths. The distinctive headgear often incorporates **Hornbill feathers**, a symbol of high status and bravery.
+                        </p>
+                        <img src="https://placehold.co/400x300/10B981/ffffff?text=Traditional+Kayan+Dress" alt="Kayan Traditional Dress" class="w-full h-auto rounded-lg shadow-md mt-4" onerror="this.src='https://placehold.co/400x300/10B981/ffffff?text=Image+Not+Found'">
+                    </div>
+                    <!-- Food -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-primary-green mb-3">Authentic Cuisine</h3>
+                        <p class="text-gray-600 mb-4">
+                            Our diet centers on freshly grown rice and ingredients harvested from the jungle or river. Signature dishes include <strong class="text-primary-green">Ulat Mayas</strong> (jungle vegetable stir-fry) and <strong class="text-primary-green">Panggi</strong> (meat or fish cooked in bamboo over an open fire).
+                        </p>
+                        <img src="https://placehold.co/400x300/92400E/ffffff?text=Panggi+Cooked+in+Bamboo" alt="Traditional Food" class="w-full h-auto rounded-lg shadow-md mt-4" onerror="this.src='https://placehold.co/400x300/92400E/ffffff?text=Image+Not+Found'">
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Music, Dance, and Folklore -->
+            <section class="mb-16 p-8 bg-white rounded-xl shadow-lg">
+                <h2 class="text-3xl font-bold text-gray-700 mb-6 border-b pb-2">Sape' Melodies and Ancient Tales</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-semibold text-primary-green mb-3">Music and Dance</h3>
+                        <p class="text-gray-600">
+                            The haunting sound of the **Sape'** (a stringed instrument, sometimes called the boat lute) is synonymous with Orang Ulu culture. It is played during longhouse gatherings, often accompanying the **Ngajat** dance. The movements of the Ngajat, particularly the graceful feather-wielding dance by women, are performed to honor guests and celebrate success.
+                        </p>
+                        <h3 class="text-2xl font-semibold text-primary-green mb-3 pt-4">Local Stories and Folklore</h3>
+                        <p class="text-gray-600">
+                            Folklore is passed down through generations via storytelling (*tekna*). These stories often feature legendary heroes, spirits of the forest and river, and the origins of the Kayan tribes, serving as moral guides and historical records.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="bg-gray-200 h-64 flex items-center justify-center rounded-lg shadow-inner">
+                            <p class="text-gray-500 font-medium">Placeholder for Sape' Music Clip or Dance Photo</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 3. Footer (Shared Across All Views) -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+            <div class="md:flex justify-between items-center">
+                <p class="text-lg font-semibold mb-4 md:mb-0">Long Bedian, Baram, Sarawak</p>
+                <div class="flex space-x-6 justify-center">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms of Use</a>
+                </div>
+            </div>
+            <div class="mt-4 border-t border-gray-700 pt-4 text-center">
+                <p class="text-sm text-gray-500">&copy; 2025 Long Bedian Community. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Link to our external JavaScript file -->
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

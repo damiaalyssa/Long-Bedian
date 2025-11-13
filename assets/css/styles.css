@@ -1,0 +1,26 @@
+/* Custom styles for general font and effects */
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: "Inter", sans-serif;
+    background-color: #f7fbfd;
+}
+.hero-background {
+    /* Using a real, high-quality image from Pexels. */
+    background-image: url('https://images.pexels.com/photos/2668314/pexels-photo-2668314.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+    background-size: cover;
+    background-position: center;
+}
+.shadow-text {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Simple fade-in animation for page loads */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.page-fade-in {
+    animation: fadeIn 0.4s ease-out;
+}
