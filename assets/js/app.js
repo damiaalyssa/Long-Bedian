@@ -3,7 +3,7 @@
   It includes:
   1. Mobile menu toggle logic.
   2. REAL contact form submission logic for contact.html.
-  3. REAL homestay data fetching for explore.html.
+  3. REAL homestay data fetching for explore.html with Google Maps.
 */
 
 // --- 1. PASTE YOUR WEB APP URL HERE ---
@@ -108,11 +108,47 @@ function initExplorePage() {
                      container.innerHTML = '<p class="text-gray-500">No homestays are listed at this time. Please check back later.</p>';
                 }
 
-                // Loop through each homestay and build an HTML card
+                // Loop through each homestay and build an HTML card with Google Maps
                 data.homestays.forEach(homestay => {
+                    // Process the location to handle different formats
+                    let embedUrl = '';
+                    const locationData = homestay.Location || homestay.Name + ', Long Bedian, Sarawak, Malaysia';
+                    
+                    // Check if it's a Google Maps link
+                    if (locationData.includes('google.com/maps') || locationData.includes('goo.gl/maps')) {
+                        // Extract coordinates or place ID from Google Maps URL
+                        const coordMatch = locationData.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/);
+                        const placeMatch = locationData.match(/place\/([^\/]+)/);
+                        
+                        if (coordMatch) {
+                            // Found coordinates in the URL
+                            embedUrl = `https://maps.google.com/maps?q=${coordMatch[1]},${coordMatch[2]}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+                        } else if (placeMatch) {
+                            // Found place name in the URL
+                            embedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(decodeURIComponent(placeMatch[1].replace(/\+/g, ' ')))}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+                        } else {
+                            // Can't parse the URL, use the whole thing as search query
+                            embedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(locationData)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+                        }
+                    } else {
+                        // It's a regular address or coordinates
+                        embedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(locationData)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+                    }
+                    
                     const card = `
                         <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 border border-primary-green/20">
-                            <img src="${homestay.ImageURL}" alt="${homestay.Name}" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/400x300/FCD34D/047857?text=Image+Not+Available'">
+                            <!-- Google Maps Embed (No API Key Required) -->
+                            <div class="w-full h-48">
+                                <iframe 
+                                    src="${embedUrl}"
+                                    width="100%" 
+                                    height="100%" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
                             <div class="p-5">
                                 <h3 class="text-xl font-semibold text-primary-green mb-2">${homestay.Name}</h3>
                                 <p class="text-sm text-gray-600 mb-4">${homestay.Description}</p>
