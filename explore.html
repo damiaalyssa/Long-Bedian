@@ -28,12 +28,26 @@
     <!-- 1. Navbar (Shared Across All Views) -->
     <header class="sticky top-0 z-50 bg-white shadow-lg">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Link to index.html for the logo -->
             <a href="index.html" class="text-2xl font-bold text-primary-green hover:text-green-800 transition duration-300">
-                L. Bedian
+                Long Bedian
             </a>
-            <div class="hidden md:flex space-x-8">
+            <div class="hidden md:flex space-x-8 items-center">
+                <!-- Update all hrefs to point to .html files -->
                 <a href="index.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300">Home</a>
-                <a href="about.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300">Our Story</a>
+                
+                <!-- IMPROVEMENT: "Our Story" is now a dropdown -->
+                <div class="relative dropdown">
+                    <a href="about.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300 flex items-center">
+                        Our Story
+                        <svg class="w-5 h-5 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                    </a>
+                    <!-- Dropdown menu -->
+                    <div class="dropdown-content">
+                        <a href="jkkk-chart.html" class="dropdown-link">JKKK Chart</a>
+                    </div>
+                </div>
+
                 <a href="culture.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300">Culture</a>
                 <!-- Set "Explore" as the active link on this page -->
                 <a href="explore.html" class="desktop-nav-link text-primary-green border-b-2 border-primary-green font-medium transition duration-300">Explore</a>
@@ -50,6 +64,8 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white shadow-inner">
             <a href="index.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Home</a>
             <a href="about.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Our Story</a>
+            <!-- IMPROVEMENT: Added sub-link for mobile -->
+            <a href="jkkk-chart.html" class="mobile-nav-sublink block py-2 pl-8 pr-4 text-sm text-gray-600 hover:bg-primary-green hover:text-white transition duration-200">&hookrightarrow; JKKK Chart</a>
             <a href="culture.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Culture</a>
             <a href="explore.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Explore</a>
             <a href="contact.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Contact Us</a>
@@ -129,24 +145,31 @@
             <!-- 2. Accommodation & Hospitality -->
             <section class="mb-16 p-8 bg-white rounded-xl shadow-lg">
                 <h2 class="text-3xl font-bold text-gray-700 mb-6 border-b pb-2">Homestays and Guest Houses</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <h3 class="text-2xl font-semibold text-primary-green mb-3">Experience Authentic Living</h3>
-                        <p class="text-gray-600 leading-relaxed mb-4">
-                            To truly experience Kayan life, we encourage visitors to stay in a **local Homestay**. These guest houses, often part of the longhouse structure or adjacent homes, offer clean, comfortable accommodation and delicious traditional meals.
-                        </p>
-                        <ul class="list-disc list-inside text-gray-600 space-y-2">
-                            <li><strong class="text-primary-green">Shared Longhouse Rooms:</strong> Experience communal living directly.</li>
-                            <li><strong class="text-primary-green">Private Guesthouses:</strong> For visitors preferring more privacy.</li>
-                            <li><strong class="text-primary-green">Traditional Meals:</strong> Included with most stays.</li>
-                        </ul>
-                        <p class="text-sm text-gray-500 mt-4 italic">
-                            Booking inquiries for homestays are handled via the Contact Us page.
-                        </p>
+                
+                <!-- This section is now dynamic -->
+                <div id="homestay-section">
+
+                    <!-- 1. Loading State -->
+                    <div id="homestay-loading" class="text-center py-12">
+                        <svg class="animate-spin h-8 w-8 text-primary-green mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <p class="text-gray-500 mt-3">Loading homestay information...</p>
                     </div>
-                    <div>
-                        <img src="https://placehold.co/400x300/FCD34D/047857?text=Homestay+Accommodation" alt="Homestay Interior" class="w-full h-auto rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/FCD34D/047857?text=Image+Not+Found'">
+
+                    <!-- 2. Error State -->
+                    <div id="homestay-error" class="hidden text-center p-8 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+                        <h3 class="text-2xl font-bold mb-4">Could Not Load Data</h3>
+                        <p>We're having trouble fetching the homestay listings. Please try refreshing the page.</p>
                     </div>
+
+                    <!-- 3. Success Container -->
+                    <!-- This div will be filled with JavaScript -->
+                    <div id="homestay-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Homestay cards will be injected here -->
+                    </div>
+
                 </div>
             </section>
 
@@ -155,15 +178,14 @@
                 <h2 class="text-3xl font-bold text-gray-700 mb-6 border-b pb-2">Key Locations Map</h2>
                 <div class="w-full h-96 rounded-lg shadow-inner overflow-hidden">
                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d4566.442120097585!2d114.7320559672135!3d3.7947573342853542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1slong%20bedian!5e0!3m2!1sen!2smy!4v1763074727493!5m2!1sen!2smy" 
-                        width="1200" 
-                        height="450" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15926.16110940385!2d114.61863605!3d3.843640099999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32130e5f5241e72b%3A0xe5493c83e20e8b26!2sLong%20Bedian%2C%20Sarawak%2C%20Malaysia!5e0!3m2!1sen!2smy!4v1715000000000!5m2!1sen!2smy" 
+                        width="100%" 
+                        height="100%" 
                         style="border:0;" 
                         allowfullscreen="" 
                         loading="lazy" 
                         referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>" 
-                       
+                    </iframe>
                 </div>
                 <p class="text-sm text-center text-gray-500 mt-4">
                     The map pinpoints the Long Bedian area.

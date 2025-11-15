@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Story - Long Bedian, Sarawak</title>
+    <title>Long Bedian, Sarawak - Our Story</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Link to our external stylesheet -->
     <link rel="stylesheet" href="assets/css/styles.css">
     
     <script>
+        // Tailwind config remains here to be loaded by the script
         tailwind.config = {
             theme: {
                 extend: {
@@ -28,13 +29,27 @@
     <!-- 1. Navbar (Shared Across All Views) -->
     <header class="sticky top-0 z-50 bg-white shadow-lg">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Link to index.html for the logo -->
             <a href="index.html" class="text-2xl font-bold text-primary-green hover:text-green-800 transition duration-300">
-                L. Bedian
+                Long Bedian
             </a>
-            <div class="hidden md:flex space-x-8">
+            <div class="hidden md:flex space-x-8 items-center">
+                <!-- Update all hrefs to point to .html files -->
                 <a href="index.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300">Home</a>
-                <!-- Set "Our Story" as the active link on this page -->
-                <a href="about.html" class="desktop-nav-link text-primary-green border-b-2 border-primary-green font-medium transition duration-300">Our Story</a>
+                
+                <!-- IMPROVEMENT: "Our Story" is now a dropdown -->
+                <div class="relative dropdown">
+                    <!-- This link is now the trigger. It is set as ACTIVE. -->
+                    <a href="about.html" class="desktop-nav-link text-primary-green border-b-2 border-primary-green font-medium transition duration-300 flex items-center">
+                        Our Story
+                        <svg class="w-5 h-5 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                    </a>
+                    <!-- Dropdown menu -->
+                    <div class="dropdown-content">
+                        <a href="jkkk-chart.html" class="dropdown-link">JKKK Chart</a>
+                    </div>
+                </div>
+
                 <a href="culture.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300">Culture</a>
                 <a href="explore.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300">Explore</a>
                 <a href="contact.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300">Contact Us</a>
@@ -50,6 +65,8 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white shadow-inner">
             <a href="index.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Home</a>
             <a href="about.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Our Story</a>
+            <!-- IMPROVEMENT: Added sub-link for mobile -->
+            <a href="jkkk-chart.html" class="mobile-nav-sublink block py-2 pl-8 pr-4 text-sm text-gray-600 hover:bg-primary-green hover:text-white transition duration-200">&hookrightarrow; JKKK Chart</a>
             <a href="culture.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Culture</a>
             <a href="explore.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Explore</a>
             <a href="contact.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Contact Us</a>
@@ -76,7 +93,10 @@
                         </p>
                     </div>
                     <div>
-                        <img src="https://placehold.co/400x300/4B5563/ffffff?text=Historical+Photo" alt="Early community photo" class="w-full h-auto rounded-lg shadow-md" onerror="this.src='https://placehold.co/400x300/4B5563/ffffff?text=Image+Not+Found'">
+                        <img src="https://placehold.co/400x300/4B5563/ffffff?text=Historical+Photo" 
+                             alt="Early community photo" 
+                             class="w-full h-auto rounded-lg shadow-md"
+                             onerror="this.src='https://placehold.co/400x300/4B5563/ffffff?text=Image+Not+Available'">
                     </div>
                 </div>
             </section>
@@ -114,10 +134,10 @@
                 
                 <!-- Gallery -->
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-                    <img src="https://images.pexels.com/photos/11808246/pexels-photo-11808246.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=2" alt="Borneo beadwork" class="rounded-lg shadow-md w-full h-48 object-cover transform hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300x200/FCD34D/047857?text=Beadwork'">
-                    <img src="https://placehold.co/300x200/047857/ffffff?text=Children+Playing" alt="Children in the village" class="rounded-lg shadow-md w-full h-48 object-cover transform hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300x200/047857/ffffff?text=Image+Not+Found'">
-                    <img src="https://placehold.co/300x200/10B981/ffffff?text=Communal+Dinner" alt="Communal longhouse dinner" class="rounded-lg shadow-md w-full h-48 object-cover transform hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300x200/10B981/ffffff?text=Image+Not+Found'">
-                    <img src="https://placehold.co/300x200/F97316/ffffff?text=Longboat+on+River" alt="Longboat journey" class="rounded-lg shadow-md w-full h-48 object-cover transform hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300x200/F97316/ffffff?text=Image+Not+Found'">
+                    <img src="https://placehold.co/300x200/FCD34D/047857?text=Beadwork+Craftsman" alt="Villager crafting" class="rounded-lg shadow-md w-full h-auto object-cover transform hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300x200/FCD34D/047857?text=Image+Not+Available'">
+                    <img src="https://placehold.co/300x200/047857/ffffff?text=Children+Playing" alt="Children in the village" class="rounded-lg shadow-md w-full h-auto object-cover transform hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300x200/047857/ffffff?text=Image+Not+Available'">
+                    <img src="https://placehold.co/300x200/10B981/ffffff?text=Communal+Dinner" alt="Communal longhouse dinner" class="rounded-lg shadow-md w-full h-auto object-cover transform hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300x200/10B981/ffffff?text=Image+Not+Available'">
+                    <img src="https://placehold.co/300x200/F97316/ffffff?text=Longboat+on+River" alt="Longboat journey" class="rounded-lg shadow-md w-full h-auto object-cover transform hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300x200/F97316/ffffff?text=Image+Not+Available'">
                 </div>
 
                 <!-- Villager Quotes -->

@@ -28,15 +28,29 @@
     <!-- 1. Navbar (Shared Across All Views) -->
     <header class="sticky top-0 z-50 bg-white shadow-lg">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Link to index.html for the logo -->
             <a href="index.html" class="text-2xl font-bold text-primary-green hover:text-green-800 transition duration-300">
-                L. Bedian
+                Long Bedian
             </a>
-            <div class="hidden md:flex space-x-8">
+            <div class="hidden md:flex space-x-8 items-center">
+                <!-- Update all hrefs to point to .html files -->
                 <a href="index.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300">Home</a>
-                <a href="about.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300">Our Story</a>
+                
+                <!-- IMPROVEMENT: "Our Story" is now a dropdown -->
+                <div class="relative dropdown">
+                    <a href="about.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300 flex items-center">
+                        Our Story
+                        <svg class="w-5 h-5 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                    </a>
+                    <!-- Dropdown menu -->
+                    <div class="dropdown-content">
+                        <a href="jkkk-chart.html" class="dropdown-link">JKKK Chart</a>
+                    </div>
+                </div>
+
                 <a href="culture.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300">Culture</a>
+                <!-- Set "Explore" as the active link on this page -->
                 <a href="explore.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300">Explore</a>
-                <!-- Set "Contact Us" as the active link on this page -->
                 <a href="contact.html" class="desktop-nav-link text-primary-green border-b-2 border-primary-green font-medium transition duration-300">Contact Us</a>
             </div>
 
@@ -50,6 +64,8 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white shadow-inner">
             <a href="index.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Home</a>
             <a href="about.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Our Story</a>
+            <!-- IMPROVEMENT: Added sub-link for mobile -->
+            <a href="jkkk-chart.html" class="mobile-nav-sublink block py-2 pl-8 pr-4 text-sm text-gray-600 hover:bg-primary-green hover:text-white transition duration-200">&hookrightarrow; JKKK Chart</a>
             <a href="culture.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Culture</a>
             <a href="explore.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Explore</a>
             <a href="contact.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Contact Us</a>
@@ -70,31 +86,50 @@
                     
                     <form class="space-y-6" id="contact-form">
                         <h2 class="text-3xl font-bold text-gray-700 mb-6 border-b pb-2">Send Us an Inquiry</h2>
+                        
+                        <!-- ADDED THESE FIELDS BACK IN -->
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
-                            <input type="text" id="name" placeholder="Your Name" class="w-full p-3 mt-1 border border-gray-300 rounded-lg focus:ring-secondary-gold focus:border-secondary-gold text-gray-800" required>
+                            <input type="text" id="name" name="name" placeholder="Your Name" class="w-full p-3 mt-1 border border-gray-300 rounded-lg focus:ring-secondary-gold focus:border-secondary-gold text-gray-800" required>
                         </div>
                         <div>
                             <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
-                            <input type="email" id="email" placeholder="Your Email" class="w-full p-3 mt-1 border border-gray-300 rounded-lg focus:ring-secondary-gold focus:border-secondary-gold text-gray-800" required>
+                            <input type="email" id="email" name="email" placeholder="Your Email" class="w-full p-3 mt-1 border border-gray-300 rounded-lg focus:ring-secondary-gold focus:border-secondary-gold text-gray-800" required>
                         </div>
                         <div>
                             <label for="subject" class="block text-sm font-medium text-gray-700">Subject (e.g., Homestay Booking, General Inquiry)</label>
-                            <input type="text" id="subject" placeholder="Inquiry Subject" class="w-full p-3 mt-1 border border-gray-300 rounded-lg focus:ring-secondary-gold focus:border-secondary-gold text-gray-800" required>
+                            <input type="text" id="subject" name="subject" placeholder="Inquiry Subject" class="w-full p-3 mt-1 border border-gray-300 rounded-lg focus:ring-secondary-gold focus:border-secondary-gold text-gray-800" required>
                         </div>
+                        <!-- END OF ADDED FIELDS -->
+
                         <div>
                             <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                            <textarea id="message" placeholder="Your Message or Inquiry" rows="6" class="w-full p-3 mt-1 border border-gray-300 rounded-lg focus:ring-secondary-gold focus:border-secondary-gold text-gray-800" required></textarea>
+                            <textarea id="message" name="message" placeholder="Your Message or Inquiry" rows="6" class="w-full p-3 mt-1 border border-gray-300 rounded-lg focus:ring-secondary-gold focus:border-secondary-gold text-gray-800" required></textarea>
                         </div>
-                        <button type="submit" class="w-full p-3 bg-primary-green text-white font-bold rounded-lg hover:bg-green-700 transition duration-300 transform hover:scale-[1.01] shadow-md">
-                            Submit Inquiry
+                        <button type="submit" id="submit-button" class="w-full p-3 bg-primary-green text-white font-bold rounded-lg hover:bg-green-700 transition duration-300 transform hover:scale-[1.01] shadow-md relative">
+                            <!-- This text will be shown by default -->
+                            <span id="submit-text">Submit Inquiry</span>
+                            
+                            <!-- This loading spinner will be hidden by default -->
+                            <span id="submit-loading" class="hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                                <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                            </span>
                         </button>
                     </form>
+
+                    <!-- This is the new, hidden error message -->
+                    <div id="contact-error" class="hidden text-center p-8 bg-red-100 border border-red-400 text-red-700 rounded-lg mt-6">
+                        <h2 class="text-3xl font-bold mb-4">Submission Failed</h2>
+                        <p>Something went wrong. Please check your internet connection or try again later.</p>
+                    </div>
                     
                     <div id="contact-success" class="hidden text-center p-8">
                         <svg class="w-16 h-16 mx-auto mb-4 text-primary-green" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                         <h2 class="text-3xl font-bold text-gray-700 mb-4">Thank You!</h2>
-                        <p class="text-gray-600">Your inquiry has been (not really) sent. We will get back to you as soon as possible.</p>
+                        <p class="text-gray-600">Your inquiry has been sent. We will get back to you as soon as possible.</p>
                     </div>
 
                 </section>
@@ -111,15 +146,6 @@
                         </div>
                     </div>
                     
-                    <!-- NADI Centre Info -->
-                    <div class="p-8 bg-white rounded-xl shadow-lg border-t-4 border-secondary-gold">
-                        <h3 class="text-2xl font-bold text-gray-700 mb-4">Community & IT Centre (NADI)</h3>
-                        <div class="space-y-3 text-gray-600">
-                            <p>The NADI Centre provides internet access and community services.</p>
-                            <p><strong>Location:</strong> Adjacent to the main longhouse structure.</p>
-                            <p><strong>Hours:</strong> Monday - Friday, 9:00 AM - 4:00 PM</p>
-                        </div>
-                    </div>
                     
                     <!-- Social Media -->
                     <div class="p-8 bg-white rounded-xl shadow-lg border-t-4 border-secondary-gold">

@@ -31,13 +31,26 @@
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <!-- Link to index.html for the logo -->
             <a href="index.html" class="text-2xl font-bold text-primary-green hover:text-green-800 transition duration-300">
-                L. Bedian
+                Long Bedian
             </a>
-            <div class="hidden md:flex space-x-8">
+            <div class="hidden md:flex space-x-8 items-center">
                 <!-- Update all hrefs to point to .html files -->
                 <!-- Set "Home" as the active link on this page -->
                 <a href="index.html" class="desktop-nav-link text-primary-green border-b-2 border-primary-green font-medium transition duration-300">Home</a>
-                <a href="about.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300">Our Story</a>
+                
+                <!-- IMPROVEMENT: "Our Story" is now a dropdown -->
+                <div class="relative dropdown">
+                    <!-- This link is the trigger -->
+                    <a href="about.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300 flex items-center">
+                        Our Story
+                        <svg class="w-5 h-5 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                    </a>
+                    <!-- Dropdown menu -->
+                    <div class="dropdown-content">
+                        <a href="jkkk-chart.html" class="dropdown-link">JKKK Chart</a>
+                    </div>
+                </div>
+
                 <a href="culture.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300">Culture</a>
                 <a href="explore.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300">Explore</a>
                 <a href="contact.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300">Contact Us</a>
@@ -53,6 +66,8 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white shadow-inner">
             <a href="index.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Home</a>
             <a href="about.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Our Story</a>
+            <!-- IMPROVEMENT: Added sub-link for mobile -->
+            <a href="jkkk-chart.html" class="mobile-nav-sublink block py-2 pl-8 pr-4 text-sm text-gray-600 hover:bg-primary-green hover:text-white transition duration-200">&hookrightarrow; JKKK Chart</a>
             <a href="culture.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Culture</a>
             <a href="explore.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Explore</a>
             <a href="contact.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Contact Us</a>
@@ -64,15 +79,42 @@
     <!-- ============================================== -->
     <main>
         <!-- Hero Section -->
-        <section id="hero" class="hero-background h-[80vh] flex items-center justify-center text-center relative rounded-b-xl shadow-2xl">
+        <section id="hero" class="h-[80vh] flex items-center justify-center text-center relative rounded-b-xl shadow-2xl overflow-hidden"> 
+            
+            <!-- Video Background Container -->
+            <div class="absolute top-0 left-0 w-full h-full z-10 pointer-events-none">
+                
+                <!-- 
+                  HTML5 <video> tag for local file.
+                  This autoplays, loops, and is muted (required for autoplay).
+                  The `playsinline` attribute helps on mobile.
+                -->
+                <video 
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto" 
+                    autoplay 
+                    loop 
+                    muted 
+                    playsinline>
+                    
+                    <!-- 
+                      This path points to your local video file
+                      as shown in your file structure.
+                    -->
+                    <source src="videos/video2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            
             <!-- Overlay for better text readability -->
-            <div class="absolute inset-0 bg-black opacity-40 rounded-b-xl"></div>
-            <div class="relative z-10 p-6 max-w-5xl">
+            <div class="absolute inset-0 bg-black opacity-80 rounded-b-xl z-20"></div>
+            
+            <!-- Hero Content -->
+            <div class="relative z-30 p-6 max-w-5xl">
                 <h1 class="text-5xl sm:text-7xl font-extrabold text-white mb-4 leading-tight shadow-text">
                     LONG BEDIAN
                 </h1>
                 <p class="text-xl sm:text-3xl text-secondary-gold font-light mb-8 italic shadow-text">
-                    — The Heart of Baram, Where Life Flows —
+                    — Peji, peju, pejoh —
                 </p>
                 <a href="about.html" class="inline-block px-8 py-3 bg-primary-green text-white font-semibold rounded-full shadow-lg hover:bg-green-700 transition duration-300 transform hover:scale-105">
                     Discover Our Story
@@ -81,7 +123,7 @@
         </section>
 
         <!-- Welcome Message and Quick Links -->
-        <section id="welcome" class="py-16 bg-white -mt-10 relative z-20">
+        <section id="welcome" class="py-16 bg-white -mt-10 relative z-40"> <!-- Increased z-index -->
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 
                 <!-- Welcome Quote from Community Leader -->

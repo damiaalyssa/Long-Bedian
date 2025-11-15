@@ -1,26 +1,109 @@
-/* Custom styles for general font and effects */
+/* Custom styles for Long Bedian Website
+    This file is loaded by all HTML pages.
+*/
+
+/* General font and scroll behavior */
 html {
     scroll-behavior: smooth;
 }
 body {
     font-family: "Inter", sans-serif;
-    background-color: #f7fbfd;
+    background-color: #f7fbfd; /* background-light */
 }
-.hero-background {
-    /* Using a real, high-quality image from Pexels. */
-    background-image: url('https://images.pexels.com/photos/2668314/pexels-photo-2668314.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-    background-size: cover;
-    background-position: center;
-}
+
+/* Text shadow for hero */
 .shadow-text {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
-/* Simple fade-in animation for page loads */
+/* Page load fade-in animation */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 .page-fade-in {
-    animation: fadeIn 0.4s ease-out;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Styling for the loading spinner */
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #047857; /* primary-green */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+
+/* ==================================
+IMPROVEMENT: Dropdown Menu Styles 
+==================================
+*/
+
+/* Container for the dropdown trigger */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    /* REMOVED: padding-bottom: 0.5rem; 
+      This was causing the misalignment.
+    */
+}
+
+/* The dropdown menu itself (hidden by default) */
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute;
+    left: 0;
+    background-color: #ffffff;
+    min-width: 200px; /* Set a min-width */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+    border-radius: 0.5rem; /* 8px */
+    z-index: 50;
+    /* IMPROVEMENT: Set margin-top to 0.
+      This attaches the dropdown to the button, removing the gap
+      which was making it hard to click.
+    */
+    margin-top: 0; 
+    border: 1px solid #f3f4f6; /* gray-100 */
+    overflow: hidden; /* Ensures rounded corners on links */
+}
+
+/* Links inside the dropdown */
+.dropdown-link {
+    color: #374151; /* gray-700 */
+    padding: 0.75rem 1rem; /* 12px 16px */
+    text-decoration: none;
+    display: block;
+    font-size: 0.875rem; /* 14px */
+    font-weight: 500; /* medium */
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.dropdown-link:hover {
+    background-color: #047857; /* primary-green */
+    color: #ffffff;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Dropdown arrow icon styling */
+.desktop-nav-link svg {
+    transition: transform 0.2s ease-in-out;
+}
+
+.dropdown:hover .desktop-nav-link svg {
+    transform: rotate(180deg);
+}
+
+/* Mobile menu sub-link (for indentation) */
+.mobile-nav-sublink {
+    /* Styles are applied via Tailwind in the HTML, but a class is good for clarity */
+    /* Example: block py-2 pl-8 pr-4 text-sm ... */
 }
