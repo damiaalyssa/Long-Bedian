@@ -23,6 +23,76 @@
             }
         }
     </script>
+    
+    <style>
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .carousel-slide {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        
+        .carousel-slide.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(4, 120, 87, 0.7);
+            color: white;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: background 0.3s;
+        }
+        
+        .carousel-btn:hover {
+            background: rgba(4, 120, 87, 0.9);
+        }
+        
+        .carousel-btn.prev {
+            left: 1rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+        
+        .carousel-btn.next {
+            right: 1rem;
+            border-radius: 0.5rem 0 0 0.5rem;
+        }
+        
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .carousel-dot {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 50%;
+            background: #d1d5db;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .carousel-dot.active {
+            background: #047857;
+            width: 2rem;
+            border-radius: 0.375rem;
+        }
+    </style>
 </head>
 <body class="text-gray-800 page-fade-in">
 
@@ -80,6 +150,81 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 class="text-5xl font-extrabold text-primary-green mb-12 text-center">The Story of Long Bedian</h1>
 
+             <!-- 3. Photo Carousel and Quotes -->
+            <section class="mb-16 p-8 bg-white rounded-xl shadow-lg">
+                <h2 class="text-3xl font-bold text-gray-700 mb-6 border-b pb-2">Faces of Long Bedian</h2>
+                
+                <!-- Carousel -->
+                <div class="carousel-container rounded-lg shadow-lg mb-8">
+                    <!-- Slides -->
+                    <div class="carousel-slide active">
+                        <img src="assets/images/craft.jpeg" 
+                             alt="Villager crafting beadwork" 
+                             class="w-full h-120 object-cover"
+                             onerror="this.src='https://placehold.co/1200x600/FCD34D/047857?text=Image+Not+Available'">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                            <h3 class="text-white text-2xl font-bold">Traditional Craftsmanship</h3>
+                            <p class="text-white/90">Master artisans creating intricate beadwork</p>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-slide">
+                        <img src="assets/images/kids.jpeg" 
+                             alt="Children playing in the village" 
+                             class="w-full h-120 object-cover"
+                             onerror="this.src='https://placehold.co/1200x600/047857/ffffff?text=Image+Not+Available'">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                            <h3 class="text-white text-2xl font-bold">Our Future Generation</h3>
+                            <p class="text-white/90">Children enjoying village life</p>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-slide">
+                        <img src="assets/images/durian.jpeg" 
+                             alt="Communal longhouse dinner" 
+                             class="w-full h-120 object-cover"
+                             onerror="this.src='https://placehold.co/1200x600/10B981/ffffff?text=Image+Not+Available'">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                            <h3 class="text-white text-2xl font-bold">Community Gatherings</h3>
+                            <p class="text-white/90">A snapshot of daily life and community projects</p>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-slide">
+                        <img src="assets/images/farming.jpeg" 
+                             alt="Longboat journey on the river" 
+                             class="w-full h-120 object-cover"
+                             onerror="this.src='https://placehold.co/1200x600/F97316/ffffff?text=Image+Not+Available'">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                            <h3 class="text-white text-2xl font-bold">Harvest Season</h3>
+                            <p class="text-white/90">A glimpse into traditional agricultural life</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Buttons -->
+                    <button class="carousel-btn prev" onclick="changeSlide(-1)">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <button class="carousel-btn next" onclick="changeSlide(1)">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Carousel Indicators -->
+                <div class="carousel-indicators">
+                    <span class="carousel-dot active" onclick="goToSlide(0)"></span>
+                    <span class="carousel-dot" onclick="goToSlide(1)"></span>
+                    <span class="carousel-dot" onclick="goToSlide(2)"></span>
+                    <span class="carousel-dot" onclick="goToSlide(3)"></span>
+                </div>
+
+                
+            </section>
+
             <!-- 1. Brief History -->
             <section class="mb-16 p-8 bg-white rounded-xl shadow-lg">
                 <h2 class="text-3xl font-bold text-gray-700 mb-6 border-b pb-2">Ancestral Origins and Legacy</h2>
@@ -108,7 +253,7 @@
                     <div>
                         <h3 class="text-2xl font-semibold text-primary-green mb-3">Community Overview</h3>
                         <p class="text-gray-600 mb-4">
-                            The Long Bedian community is close-knit, diverse, and culturally rich, comprising mainly Kayan, Kelabit, and other indigenous groups. Villagers actively participate in traditional music, dance, festivals, and communal farming, which fosters a strong sense of identity and unity. Over time, the community has embraced education, healthcare, tourism, and entrepreneurship, with initiatives like Tapun Homestay and eco-tourism programs connecting local heritage to the modern economy. Leadership structures such as the village head, JKKK, help maintain social harmony, governance, and sustainable development within the village.
+                            The Long Bedian community is close-knit, diverse, and culturally rich, comprising mainly Kayan, Kelabit, Penan, and other indigenous groups. Villagers actively participate in traditional music, dance, festivals, and communal farming, which fosters a strong sense of identity and unity. Over time, the community has embraced education, healthcare, tourism, and entrepreneurship, with initiatives like Tapun Homestay and eco-tourism programs connecting local heritage to the modern economy. Leadership structures such as the village head, JKKK, help maintain social harmony, governance, and sustainable development within the village.
                         </p>
                         <p class="text-lg font-bold text-gray-700">Our Motto:</p>
                         <blockquote class="italic text-gray-600 mt-2 p-3 border-l-4 border-secondary-gold bg-gray-50 rounded-r-lg">
@@ -136,31 +281,7 @@
                 </div>
             </section>
 
-            <!-- 3. Photo Gallery and Quotes -->
-            <section class="mb-16 p-8 bg-white rounded-xl shadow-lg">
-                <h2 class="text-3xl font-bold text-gray-700 mb-6 border-b pb-2">Faces of Long Bedian</h2>
-                
-                <!-- Gallery -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-                    <img src="https://placehold.co/300x200/FCD34D/047857?text=Beadwork+Craftsman" alt="Villager crafting" class="rounded-lg shadow-md w-full h-auto object-cover transform hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300x200/FCD34D/047857?text=Image+Not+Available'">
-                    <img src="https://placehold.co/300x200/047857/ffffff?text=Children+Playing" alt="Children in the village" class="rounded-lg shadow-md w-full h-auto object-cover transform hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300x200/047857/ffffff?text=Image+Not+Available'">
-                    <img src="https://placehold.co/300x200/10B981/ffffff?text=Communal+Dinner" alt="Communal longhouse dinner" class="rounded-lg shadow-md w-full h-auto object-cover transform hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300x200/10B981/ffffff?text=Image+Not+Available'">
-                    <img src="https://placehold.co/300x200/F97316/ffffff?text=Longboat+on+River" alt="Longboat journey" class="rounded-lg shadow-md w-full h-auto object-cover transform hover:scale-105 transition duration-300" onerror="this.src='https://placehold.co/300x200/F97316/ffffff?text=Image+Not+Available'">
-                </div>
-
-                <!-- Villager Quotes -->
-                <div class="space-y-6">
-                    <h3 class="text-2xl font-semibold text-primary-green mb-3">Voices from the Village</h3>
-                    <div class="p-4 border-l-4 border-primary-green bg-gray-50 rounded-r-lg">
-                        <p class="italic text-gray-700">"What I love most about our kampung is the sense of belonging. Everyone is family here, and we face challenges together."</p>
-                        <p class="text-sm font-medium text-right mt-2 text-gray-500">— Apoi, Village Elder</p>
-                    </div>
-                    <div class="p-4 border-l-4 border-primary-green bg-gray-50 rounded-r-lg">
-                        <p class="italic text-gray-700">"Waking up to the sound of the Baram River every day is priceless. It reminds us of the strength and beauty of our home."</p>
-                        <p class="text-sm font-medium text-right mt-2 text-gray-500">— Lisa, Young Resident</p>
-                    </div>
-                </div>
-            </section>
+           
         </div>
     </main>
 
@@ -179,6 +300,39 @@
             </div>
         </div>
     </footer>
+
+    <!-- Carousel JavaScript -->
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        
+        function showSlide(n) {
+            if (n >= slides.length) currentSlide = 0;
+            if (n < 0) currentSlide = slides.length - 1;
+            
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+        
+        function changeSlide(n) {
+            currentSlide += n;
+            showSlide(currentSlide);
+        }
+        
+        function goToSlide(n) {
+            currentSlide = n;
+            showSlide(currentSlide);
+        }
+        
+        // Auto-play carousel every 5 seconds
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+    </script>
 
     <!-- Link to our external JavaScript file -->
     <script src="assets/js/app.js"></script>
