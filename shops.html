@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shops - Long Bedian, Sarawak</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to our external stylesheet -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-green': '#047857', /* Emerald-700 */
+                        'secondary-gold': '#FCD34D', /* Amber-300 */
+                        'background-light': '#f7fbfd',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .shops-carousel {
+            scroll-behavior: smooth;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+        .shops-carousel::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+        .carousel-arrow {
+            transition: all 0.3s ease;
+        }
+        .carousel-arrow:hover {
+            transform: scale(1.1);
+        }
+        .carousel-arrow:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body class="text-gray-800 page-fade-in">
+
+    <!-- 1. Navbar (Shared Across All Views) -->
+    <header class="sticky top-0 z-50 bg-white shadow-lg">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Link to index.html for the logo -->
+            <a href="index.html" class="text-2xl font-bold text-primary-green hover:text-green-800 transition duration-300">
+                Long Bedian
+            </a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <!-- Update all hrefs to point to .html files -->
+                <a href="index.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300">Home</a>
+                
+                <!-- IMPROVEMENT: "Our Story" is now a dropdown -->
+                <div class="relative dropdown">
+                    <a href="about.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300 flex items-center">
+                        Our Story
+                        <svg class="w-5 h-5 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                    </a>
+                    <!-- Dropdown menu -->
+                    <div class="dropdown-content">
+                        <a href="jkkk-chart.html" class="dropdown-link">JKKK Chart</a>
+                    </div>
+                </div>
+
+                <a href="culture.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300">Culture</a>
+                <a href="explore.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300">Explore</a>
+                <!-- Set "Shops" as the active link on this page -->
+                <a href="shops.html" class="desktop-nav-link text-primary-green border-b-2 border-primary-green font-medium transition duration-300">Shops</a>
+                <a href="contact.html" class="desktop-nav-link text-gray-600 hover:text-primary-green font-medium transition duration-300">Contact Us</a>
+            </div>
+
+            <!-- Mobile Menu Button (Hamburger) -->
+            <button class="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100" id="mobile-menu-button">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-inner">
+            <a href="index.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Home</a>
+            <a href="about.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Our Story</a>
+            <!-- IMPROVEMENT: Added sub-link for mobile -->
+            <a href="jkkk-chart.html" class="mobile-nav-sublink block py-2 pl-8 pr-4 text-sm text-gray-600 hover:bg-primary-green hover:text-white transition duration-200">&hookrightarrow; JKKK Chart</a>
+            <a href="culture.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Culture</a>
+            <a href="explore.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Explore</a>
+            <a href="shops.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Shops</a>
+            <a href="contact.html" class="mobile-nav-link block py-2 px-4 text-sm text-gray-700 hover:bg-primary-green hover:text-white transition duration-200">Contact Us</a>
+        </div>
+    </header>
+
+    <!-- ============================================== -->
+    <!-- SHOPS PAGE CONTENT -->
+    <!-- ============================================== -->
+    <main class="py-16 bg-background-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-5xl font-extrabold text-primary-green mb-12 text-center">Local Shops & Markets</h1>
+
+            <!-- 1. Local Markets & Shops Overview -->
+            <section class="mb-16 p-8 bg-white rounded-xl shadow-lg">
+                <h2 class="text-3xl font-bold text-gray-700 mb-6 border-b pb-2">Discover Local Commerce</h2>
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                    Long Bedian's local shops and markets offer a unique shopping experience where you can find authentic Kayan crafts, fresh jungle produce, traditional foods, and everyday essentials. These community-run businesses are the heart of local commerce, supporting both residents and visitors with quality goods and warm hospitality.
+                </p>
+                
+                <!-- Carousel Container -->
+                <div class="relative px-8 md:px-12 lg:px-16">
+                    <!-- Left Arrow -->
+                    <button id="shops-carousel-prev" class="carousel-arrow absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-primary-green text-white p-2 md:p-3 rounded-full shadow-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-primary-green focus:ring-offset-2" aria-label="Previous shops">
+                        <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+
+                    <!-- Shops Carousel -->
+                    <div id="shops-carousel" class="shops-carousel flex gap-8 overflow-x-auto pb-4" style="scroll-snap-type: x mandatory;">
+                        
+                        <!-- Shop 1: GME Collection -->
+                        <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 border border-primary-green/20" style="scroll-snap-align: start;">
+                            <img src="assets/images/gme_collection.jpeg" alt="GME Collection" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/600x400/047857/ffffff?text=GME'">
+                            <div class="p-4">
+                                <h3 class="text-xl font-semibold text-primary-green mb-2">GME Collection</h3>
+                                <p class="text-sm text-gray-600 mb-3">
+                                    Specializing in traditional modern hats (topi moden) and beautifully handcrafted bags. Discover authentic Kayan accessories that blend traditional craftsmanship with contemporary style.
+                                </p>
+                                <p class="text-xs text-gray-500 leading-relaxed">
+                                    <strong>Address:</strong> Long Bedian, LB156, Apoh, 98050 Baram, Sarawak<br>
+                                    <strong>Hours:</strong> 8.00 AM – 10.00 PM<br>
+                                    <strong>Phone:</strong> 012-884 9040
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Shop 2: LAHAI Handicraft -->
+                        <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 border border-primary-green/20" style="scroll-snap-align: start;">
+                            <img src="assets/images/lahai_handicraft.jpeg" alt="LAHAI Handicraft" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/600x400/F97316/ffffff?text=LAHAI'">
+                            <div class="p-4">
+                                <h3 class="text-xl font-semibold text-primary-green mb-2">LAHAI Handicraft</h3>
+                                <p class="text-sm text-gray-600 mb-3">
+                                    Master artisans creating exquisite handcrafted bags using traditional rattan (rotan) weaving techniques. Each piece showcases the skill and heritage of Long Bedian's craft traditions.
+                                </p>
+                                <p class="text-xs text-gray-500 leading-relaxed">
+                                    <strong>Address:</strong> Long Bedian, Apoh, Baram, Sarawak<br>
+                                    <strong>Hours:</strong> 8.00 AM – 7.30 PM<br>
+                                    <strong>Phone:</strong> 011-1050 2428
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Shop 3: SAYULAN Enterprise -->
+                        <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 border border-primary-green/20" style="scroll-snap-align: start;">
+                            <img src="assets/images/kedai.jpeg" alt="SAYULAN Enterprise" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/600x400/22C55E/ffffff?text=SAYU'">
+                            <div class="p-4">
+                                <h3 class="text-xl font-semibold text-primary-green mb-2">SAYULAN Enterprise</h3>
+                                <p class="text-sm text-gray-600 mb-3">
+                                    A well-stocked grocery store (kedai runcit) offering a comprehensive selection of daily necessities, household items, and essential goods for the Long Bedian community.
+                                </p>
+                                <p class="text-xs text-gray-500 leading-relaxed">
+                                    <strong>Address:</strong> Pekan Long Bedian, Long Bedian, 98050 Baram, Sarawak<br>
+                                    <strong>Hours:</strong> 8.00 AM – 7.30 PM<br>
+                                    <strong>Phone:</strong> 019-887 9917
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Shop 4: Apoh Trading -->
+                        <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 border border-primary-green/20" style="scroll-snap-align: start;">
+                            <img src="assets/images/apoh_trading_2.jpeg" alt="Apoh Trading" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/600x400/8B5CF6/ffffff?text=Apoh'">
+                            <div class="p-4">
+                                <h3 class="text-xl font-semibold text-primary-green mb-2">Apoh Trading</h3>
+                                <p class="text-sm text-gray-600 mb-3">
+                                    Your premier destination for authentic Long Bedian souvenirs. Featuring locally crafted mementos, traditional items, and unique keepsakes that celebrate the rich culture and heritage of the region.
+                                </p>
+                                <p class="text-xs text-gray-500 leading-relaxed">
+                                    <strong>Address:</strong> Long Bedian, Apoh, Baram, Sarawak<br>
+                                    <strong>Hours:</strong> 8.00 AM – 7.30 PM<br>
+                                    <strong>Phone:</strong> Contact for details
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Shop 5: Inei Soon -->
+                        <div class="flex-shrink-0 w-full md:w-1/2 lg:w-1/3 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 border border-primary-green/20" style="scroll-snap-align: start;">
+                            <img src="assets/images/inei_soon.jpeg" alt="Inei Soon" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/600x400/EC4899/ffffff?text=Inei'">
+                            <div class="p-4">
+                                <h3 class="text-xl font-semibold text-primary-green mb-2">Inei Soon</h3>
+                                <p class="text-sm text-gray-600 mb-3">
+                                    Expert tailoring services specializing in batik clothing. Create custom batik garments tailored to your measurements, featuring traditional patterns and modern designs perfect for any occasion.
+                                </p>
+                                <p class="text-xs text-gray-500 leading-relaxed">
+                                    <strong>Address:</strong> Long Bedian, Apoh, Baram, Sarawak<br>
+                                    <strong>Hours:</strong> 8.00 AM – 7.30 PM<br>
+                                    <strong>Phone:</strong> Contact for details
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Arrow -->
+                    <button id="shops-carousel-next" class="carousel-arrow absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-primary-green text-white p-2 md:p-3 rounded-full shadow-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-primary-green focus:ring-offset-2" aria-label="Next shops">
+                        <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </section>
+
+            <!-- 2. Traditional Crafts & Handicrafts -->
+            <section class="mb-16 p-8 bg-white rounded-xl shadow-lg">
+                <h2 class="text-3xl font-bold text-gray-700 mb-6 border-b pb-2">Traditional Crafts & Handicrafts</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-primary-green mb-4">What You Can Find</h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-primary-green mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                                <span><strong class="text-primary-green">Beadwork:</strong> Intricate traditional jewelry, accessories, and decorative items</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-primary-green mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                                <span><strong class="text-primary-green">Rattan Weaving:</strong> Baskets, mats, and containers made from natural rattan</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-primary-green mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                                <span><strong class="text-primary-green">Wood Carvings:</strong> Traditional decorative items and functional pieces</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-primary-green mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                                <span><strong class="text-primary-green">Traditional Textiles:</strong> Hand-woven fabrics and traditional clothing</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="assets/images/crafts.jpg" 
+                            alt="Traditional Crafts" 
+                            class="w-full h-auto rounded-lg shadow-md"
+                            onerror="this.src='https://placehold.co/600x400/FCD34D/047857?text=Image+Not+Available'">
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Shopping Tips -->
+            <section class="mb-16 p-8 bg-white rounded-xl shadow-lg">
+                <h2 class="text-3xl font-bold text-gray-700 mb-6 border-b pb-2">Shopping Tips for Visitors</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold text-primary-green mb-3">Best Times to Visit</h3>
+                        <p class="text-gray-600 mb-4">
+                            Early mornings are ideal for fresh produce markets, while craft shops are typically open throughout the day. Weekend markets often have more vendors and a wider selection of items.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-primary-green mb-3">Payment & Bargaining</h3>
+                        <p class="text-gray-600 mb-4">
+                            Most shops accept cash (Malaysian Ringgit). While prices are generally fixed, friendly negotiation is sometimes acceptable, especially for handmade crafts. Always be respectful and fair in your dealings.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+     <!-- 3. Footer (Shared Across All Views) -->
+        <footer class="bg-gray-800 text-white py-8 mt-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+                <div class="md:flex justify-between items-center">
+                    <div class="flex items-center justify-center md:justify-start mb-4 md:mb-0">
+                        <p class="text-lg font-semibold">Long Bedian, Miri, Sarawak</p>
+                        
+                    </div>
+                    <div class="flex space-x-6 justify-center">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">Terms of Use</a>
+                    </div>
+                </div>
+                <div class="mt-4 border-t border-gray-700 pt-4">
+                    <div class="flex items-center justify-center space-x-3">
+                        <p class="text-sm text-gray-500">&copy; Initiative by YSS alumni.</p>
+                         <img src="assets/images/YSS logo.png" 
+                            alt="Long Bedian Logo" 
+                            class="h-6 w-15"
+                            onerror="this.src='https://placehold.co/100x100/047857/ffffff?text=LB'">
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    <!-- Link to our external JavaScript file -->
+    <script src="assets/js/app.js"></script>
+    
+    <!-- Shops Carousel Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.getElementById('shops-carousel');
+            const prevButton = document.getElementById('shops-carousel-prev');
+            const nextButton = document.getElementById('shops-carousel-next');
+            
+            // Calculate scroll amount (width of one card + gap)
+            function getScrollAmount() {
+                const card = carousel.querySelector('div');
+                if (!card) return 0;
+                const cardWidth = card.offsetWidth;
+                const gap = 32; // 2rem = 32px (gap-8)
+                return cardWidth + gap;
+            }
+            
+            // Scroll to previous
+            prevButton.addEventListener('click', function() {
+                const scrollAmount = getScrollAmount();
+                carousel.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Scroll to next
+            nextButton.addEventListener('click', function() {
+                const scrollAmount = getScrollAmount();
+                carousel.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Update arrow visibility based on scroll position
+            function updateArrowVisibility() {
+                const isAtStart = carousel.scrollLeft <= 0;
+                const isAtEnd = carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth - 10; // 10px tolerance
+                
+                prevButton.style.opacity = isAtStart ? '0.5' : '1';
+                prevButton.style.pointerEvents = isAtStart ? 'none' : 'auto';
+                
+                nextButton.style.opacity = isAtEnd ? '0.5' : '1';
+                nextButton.style.pointerEvents = isAtEnd ? 'none' : 'auto';
+            }
+            
+            // Initial check
+            updateArrowVisibility();
+            
+            // Update on scroll
+            carousel.addEventListener('scroll', updateArrowVisibility);
+            
+            // Update on window resize
+            window.addEventListener('resize', function() {
+                updateArrowVisibility();
+            });
+        });
+    </script>
+</body>
+</html>
+
